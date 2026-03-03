@@ -30,7 +30,6 @@ function simulateOrder(restaurant, hour, cfg) {
   if(cfg.mxWorkflow) noise*=0.78;
   if(cfg.labelCleaning) noise*=0.83;
   const improvedSignal = clamp(gauss(iBase,noise),restaurant.baseKPT*0.4,restaurant.baseKPT*2.5);
-  const travelTime = gauss(12,3);
   return {
     trueKPT, baselineSignal, improvedSignal,
     baselineETAError: Math.abs(baselineSignal-trueKPT),
